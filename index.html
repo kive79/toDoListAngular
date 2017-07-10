@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+ <html lang="en" ng-app='main'>
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Document</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+ <script src="main.js" charset="utf-8"></script>
+<link rel="stylesheet" href="main.css">
+ </head>
+ <body ng-controller='mainCtrl'>
+
+   <div class="jumbotron text-center">
+     <h2>To Do list</h2>
+   </div>
+   <div class="container">
+      <div class="input-group col-lg-6 col-lg-offset-3">
+        <input type="text" class="form-control" placeholder="Enter Task" ng-model = "newTask">
+        <span class="input-group-addon"><button ng-click="add()">Add task</button></span>
+      </div><br>
+      <div class="panel panel-default col-lg-6 col-lg-offset-3" ng-repeat='tasks in arrTask'>
+        <div class="panel-heading">
+          <h3 class="panel-title">Task #{{$index+1}}</h3>
+        </div>
+        <div ng-class = "{'mark':tasks.complete === true}"class="panel-body">
+           {{tasks.task}}
+        </div>
+
+        <div class="panel-footer text-center">
+         <button class="btn btn-danger delete" ng-click="delete($index)">Delete</button>
+         <button class="btn btn-success" ng-click="markComplete($index)">Mark</button>
+        </div>
+      </div>
+
+
+    </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ </body>
+ </html>
